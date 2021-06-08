@@ -1,0 +1,46 @@
+
+<?php include "selectdepartement.html" ?>
+
+
+<ul class="list-group">
+<h3><?= $data["records"][0]["fields"]["nom_departement"] ?></h3>
+    <?php foreach ($data["records"] as $festival) : ?>
+        <?php
+        $url = "";
+        if (isset($festival["fields"]["site_web"])) {
+            $url = $festival["fields"]["site_web"];
+            if (!preg_match("/^http/", $url)) {
+                $url = "http://" . $url;
+            }
+        } 
+        
+
+        ?>
+        <li class="list-group-item" onmouseover="changeClassDisplay(this)" onmouseout="changeClassHidden(this)"><?= $festival["fields"]["nom_de_la_manifestation"] ?>
+            <ul>
+                <li> <img src="Festivals/images/puceRed.png"> <?= $festival["fields"]["commune_principale"] ?></li>
+            </ul>
+            <div class="hidden">
+            <span> Page Web : <?= (isset($festival["fields"]["site_web"])) ? "<a target='_blank' href='{$url}'> {$url}</a>" : "Non renseigné" ?></span>
+                </br>
+                <span>Genre : <?= (isset($festival["fields"]["domaine"])) ? $festival["fields"]["domaine"] : "Non renseigné" ?> </span>
+                </br>
+                <span>Autres communes concernées :  <?= (isset($festival["fields"]["autres_communes"])) ?  $festival["fields"]["autres_communes"] : "Non renseigné" ?></span>
+                </br>
+                <span>Période : <?= (isset($festival["fields"]["mois_habituel_de_debut"])) ? $festival["fields"]["mois_habituel_de_debut"] : "Non renseigné" ?></span>
+                
+                
+            </div>
+        </li>
+
+    <?php endforeach ?>
+</ul>
+<script>
+    function changeClassDisplay(moi){
+        moi.lastChild.previousSibling.className = "";
+}
+
+    function changeClassHidden(moi){
+        moi.lastChild.previousSibling.className = "hidden";
+    }
+</script>

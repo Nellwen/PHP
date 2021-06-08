@@ -1,0 +1,48 @@
+form {
+  padding: 10px;
+}
+
+form select {
+  margin-left: 10px;
+  color: black;
+}
+
+form button {
+  margin-left: 10px;
+}
+
+ul h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul li {
+  background-color: transparent !important;
+}
+
+ul li ul li {
+  font-size: 12px;
+  font-style: italic;
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+ul li ul li img {
+  width: 20px;
+  height: 24px;
+}
+
+ul li div {
+  background-color: rgba(0, 0, 0, 0.657);
+  padding: 10px;
+}
+
+ul li div span {
+  color: white;
+  line-height: 35px;
+}
+
+.container {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
